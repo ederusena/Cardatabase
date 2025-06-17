@@ -85,7 +85,7 @@ spring.h2.console.path=/h2-console
 
 Access it in your browser:
 
-http://localhost:8080/h2-console
+<http://localhost:8080/h2-console>
 
 ## 🔄 Creating a CRUD Repository
 
@@ -153,4 +153,50 @@ You can extend this project by adding:
 3. ✅ DTOs for data transfer
 
 4. ✅ Exception handling
+
+# RESTful Web Service with Spring Boot
+
+This project demonstrates how to create a RESTful web service using Spring Boot, Spring Data REST, and OpenAPI 3 (Swagger) for documentation.
+
+## Key Features
+
+- **REST Principles**: Stateless, cacheable, uniform interface.
+- **Spring Boot REST Controller**: Uses `@RestController` and HTTP method annotations (`@GetMapping`, `@PostMapping`, etc.).
+- **Spring Data REST**: Auto-generates CRUD endpoints for JPA repositories.
+- **HATEOAS Support**: Hypermedia links for resource navigation.
+- **OpenAPI 3 Documentation**: Automatic API docs with Swagger UI.
+
+## Endpoints
+
+- `GET /api/cars` → Fetch all cars
+- `POST /api/cars` → Add a new car (JSON body)
+- `PATCH /api/cars/{id}` → Update a car (partial update)
+- `DELETE /api/cars/{id}` → Delete a car
+- `GET /api/cars/search/findByBrand?brand={brand}` → Custom query
+
+## Configuration
+
+1. **Spring Data REST Base Path** (`application.properties`):
+
+```groovy
+spring.data.rest.basePath=/api
+springdoc.api-docs.path=/api-docs
+springdoc.swagger-ui.path=/swagger-ui.html
+springdoc.swagger-ui.enabled=true
+```
+
+## Dependencies
+
+Spring Boot Starter Web
+
+Spring Data JPA
+
+Spring Data REST
+
+SpringDoc OpenAPI (Swagger)
+
+## Notes
+
+> Avoid JSON infinite loops with @JsonIgnore in bidirectional relationships.
+> Securing the API (e.g., with Spring Security) will require additional configuration.
 
