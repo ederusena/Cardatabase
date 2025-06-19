@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 
 import br.Cardatabase.domain.AppUser;
 import br.Cardatabase.domain.Car;
@@ -16,6 +17,7 @@ import br.Cardatabase.repository.CarRepository;
 import br.Cardatabase.repository.OwnerRepository;
 
 @SpringBootApplication
+@EnableMethodSecurity
 public class CardatabaseApplication implements CommandLineRunner {
 
 	private static final Logger logger = LoggerFactory.getLogger(CardatabaseApplication.class);
