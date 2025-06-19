@@ -113,7 +113,7 @@ dependencies {
 }
 ```
 
-## 🗂️ Updating application.properties
+### 🗂️ Updating application.properties
 
 Replace the H2 settings with the MariaDB configuration:
 
@@ -129,7 +129,7 @@ spring.jpa.generate-ddl=true
 spring.jpa.hibernate.ddl-auto=create-drop
 ```
 
-## 🏗️ Understanding spring.jpa.hibernate.ddl-auto
+### 🏗️ Understanding spring.jpa.hibernate.ddl-auto
 
 This setting controls how Spring Boot manages the database schema:
 
@@ -154,11 +154,11 @@ You can extend this project by adding:
 
 4. ✅ Exception handling
 
-# RESTful Web Service with Spring Boot
+## RESTful Web Service with Spring Boot
 
 This project demonstrates how to create a RESTful web service using Spring Boot, Spring Data REST, and OpenAPI 3 (Swagger) for documentation.
 
-## Key Features
+### Key Features
 
 - **REST Principles**: Stateless, cacheable, uniform interface.
 - **Spring Boot REST Controller**: Uses `@RestController` and HTTP method annotations (`@GetMapping`, `@PostMapping`, etc.).
@@ -166,7 +166,7 @@ This project demonstrates how to create a RESTful web service using Spring Boot,
 - **HATEOAS Support**: Hypermedia links for resource navigation.
 - **OpenAPI 3 Documentation**: Automatic API docs with Swagger UI.
 
-## Endpoints
+### Endpoints
 
 - `GET /api/cars` → Fetch all cars
 - `POST /api/cars` → Add a new car (JSON body)
@@ -174,7 +174,7 @@ This project demonstrates how to create a RESTful web service using Spring Boot,
 - `DELETE /api/cars/{id}` → Delete a car
 - `GET /api/cars/search/findByBrand?brand={brand}` → Custom query
 
-## Configuration
+### Configuration
 
 1. **Spring Data REST Base Path** (`application.properties`):
 
@@ -185,7 +185,7 @@ springdoc.swagger-ui.path=/swagger-ui.html
 springdoc.swagger-ui.enabled=true
 ```
 
-## Dependencies
+### Dependencies
 
 Spring Boot Starter Web
 
@@ -195,8 +195,10 @@ Spring Data REST
 
 SpringDoc OpenAPI (Swagger)
 
-## Notes
+### Notes
 
 > Avoid JSON infinite loops with @JsonIgnore in bidirectional relationships.
 > Securing the API (e.g., with Spring Security) will require additional configuration.
+
+## Securing Your Backend
 
