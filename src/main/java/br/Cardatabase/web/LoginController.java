@@ -1,5 +1,7 @@
 package br.Cardatabase.web;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.Cardatabase.CardatabaseApplication;
 import br.Cardatabase.domain.AccountCredentialsRecord;
 import br.Cardatabase.services.JwtService;
 
@@ -16,6 +19,7 @@ import br.Cardatabase.services.JwtService;
 public class LoginController {
   private final JwtService jwtService;
   private final AuthenticationManager authenticationManager;
+  private static final Logger logger = LoggerFactory.getLogger(CardatabaseApplication.class);
 
   public LoginController(JwtService jwtService,
       AuthenticationManager authenticationManager) {
@@ -25,7 +29,7 @@ public class LoginController {
 
   @PostMapping("/login")
   public ResponseEntity<?> getToken(@RequestBody AccountCredentialsRecord credentials) {
-    System.out.println("LoginController.getToken() called with credentials: " + credentials);
+    logger.info("LoginController.getToken() called with credentials: " + credentials);
     UsernamePasswordAuthenticationToken creds = new UsernamePasswordAuthenticationToken(credentials.username(),
         credentials.password());
     Authentication auth = authenticationManager.authenticate(creds);
